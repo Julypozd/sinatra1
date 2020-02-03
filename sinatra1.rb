@@ -1,4 +1,12 @@
 require 'sinatra'  
+enable :sessions
+get "/set" do
+    session[:message] = params[:message]
+    "session saved"
+  end 
+  get "/get" do
+    session[:message]
+end
 
 get '/' do
     "My web page"
@@ -47,4 +55,16 @@ end
 
 post "/post_it" do
     "<h1>Form Submitted</h1>"
+end
+
+get "/hello" do
+  send_file "name.html"
+end
+
+post "/hello" do
+    "<h1>Saved the name</h1>"
+end
+
+post '/greet' do
+ "<h1>Nice to meet you #{params[:FirstName]}</h1>"
 end
