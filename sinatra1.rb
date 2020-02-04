@@ -4,7 +4,7 @@ get "/set" do
     session[:message] = params[:message]
     "session saved"
   end 
-  get "/get" do
+get "/get" do
     session[:message]
 end
 
@@ -62,9 +62,13 @@ get "/hello" do
 end
 
 post "/hello" do
-    "<h1>Saved the name</h1>"
+  session[:message] = params[:FirstName]
+  "<h1>Saved the name</h1>"
 end
 
-post '/greet' do
- "<h1>Nice to meet you #{params[:FirstName]}</h1>"
+get "/greet" do
+  "<h1>Nice to meet you #{session[:message]}</h1>"
 end
+
+
+
