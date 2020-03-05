@@ -70,5 +70,12 @@ get "/greet" do
   "<h1>Nice to meet you #{session[:message]}</h1>"
 end
 
+get "/howmany" do
+  erb :howmany
+end
 
+post "/candles" do
+  @can = params[:num].to_i
+  erb :candles
+end
 
